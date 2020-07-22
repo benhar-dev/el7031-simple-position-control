@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <DUT Name="STM_Status_Status" Id="{ac23b967-f80f-4a53-b688-428a68044b23}">
+    <Declaration><![CDATA[TYPE STM_Status_Status :
+STRUCT
+	ReadyToEnable : BIT;
+	Ready : BIT;
+	Warning : BIT;
+	Error : BIT;
+	MovingPositive : BIT;
+	MovingNegative : BIT;
+	TorqueReduced : BIT;
+	
+	{attribute 'hide'}
+	padding_0_7	: BIT;
+	{attribute 'hide'}
+	padding_1_0	: BIT;
+	{attribute 'hide'}
+	padding_1_1	: BIT;
+	{attribute 'hide'}
+	padding_1_2	: BIT;
+	
+	DigitalInput1 : BIT;
+	DigitalInput2 : BIT;
+	SyncError : BIT;
+	
+	{attribute 'hide'}
+	padding_1_6	: BIT;
+	
+	TxPDOToggle : BIT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

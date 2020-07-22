@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <DUT Name="POS_Control_Control" Id="{552fb785-7b8a-48b3-8ae9-f0d695092bfa}">
+    <Declaration><![CDATA[TYPE POS_Control_Control :
+STRUCT
+	Execute : BIT;
+	EmergencyStop : BIT;
+	
+	{attribute 'hide'}
+	padding_0_2	: BIT;
+	{attribute 'hide'}
+	padding_0_3	: BIT;
+	{attribute 'hide'}
+	padding_0_4	: BIT;
+	{attribute 'hide'}
+	padding_0_5	: BIT;
+	{attribute 'hide'}
+	padding_0_6	: BIT;
+	{attribute 'hide'}
+	padding_0_7	: BIT;
+	{attribute 'hide'}
+	padding_1_0	: BIT;
+	{attribute 'hide'}
+	padding_1_1	: BIT;
+	{attribute 'hide'}
+	padding_1_2	: BIT;
+	{attribute 'hide'}
+	padding_1_3	: BIT;
+	{attribute 'hide'}
+	padding_1_4	: BIT;
+	{attribute 'hide'}
+	padding_1_5	: BIT;
+	{attribute 'hide'}
+	padding_1_6	: BIT;
+	{attribute 'hide'}
+	padding_1_7	: BIT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

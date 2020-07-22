@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <DUT Name="POS_Status_Status" Id="{4eed0f9c-34f4-4c9e-b0d6-56b07909ceb7}">
+    <Declaration><![CDATA[TYPE POS_Status_Status :
+STRUCT
+	Busy : BIT;
+	InTarget : BIT;
+	Warning : BIT;
+	Error : BIT;
+	Calibrated : BIT;
+	Accelerate : BIT;
+	Decelerate : BIT;
+	
+	{attribute 'hide'}
+	padding_0_7	: BIT;
+	{attribute 'hide'}
+	padding_1_0	: BIT;
+	{attribute 'hide'}
+	padding_1_1	: BIT;
+	{attribute 'hide'}
+	padding_1_2	: BIT;
+	{attribute 'hide'}
+	padding_1_3	: BIT;
+	{attribute 'hide'}
+	padding_1_4	: BIT;
+	{attribute 'hide'}
+	padding_1_5	: BIT;
+	{attribute 'hide'}
+	padding_1_6	: BIT;
+	{attribute 'hide'}
+	padding_1_7	: BIT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

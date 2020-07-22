@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.7" ClassName="CDeviceDef" SubType="124">
+	<Device Id="1" DevType="124" DevFlags="#x0004">
+		<Name>__FILENAME__</Name>
+		<ImageId>230</ImageId>
+		<AddressInfo>
+			<Pci>
+				<Address>-1073741824</Address>
+				<Size>0</Size>
+				<BusNo>65535</BusNo>
+				<SlotNo>0</SlotNo>
+			</Pci>
+		</AddressInfo>
+		<CCat>
+			<Slot Id="#x03010011">
+				<Name>Slot 1 (MAC-DMA)</Name>
+				<ImageId>231</ImageId>
+				<CCatSlot SlotType="15000000030200000000010000400000" SlotData="000000000000000000010544762c0000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" SlotName="Slot 1 (MAC-DMA)" Ports="2" MacOids="1200010313000103140001030000000000000000000000000000000000000000" SlotNo="1"/>
+			</Slot>
+			<Slot Id="#x03010015">
+				<Name>Slot 2 (Switch)</Name>
+				<ImageId>231</ImageId>
+				<CCatSlot SlotType="05000600030000000000030000200000" SlotName="Slot 2 (Switch)" SlotNo="2"/>
+			</Slot>
+			<Slot Id="#x03010016">
+				<Name>Slot 5 (GPIO)</Name>
+				<ImageId>231</ImageId>
+				<CCatSlot SlotType="0d0000000a0000000003000020000000" SlotName="Slot 5 (GPIO)" SlotNo="5"/>
+			</Slot>
+			<Slot Id="#x03010017">
+				<Name>Slot 6 (System Time)</Name>
+				<ImageId>231</ImageId>
+				<CCatSlot SlotType="10000000000000000004000080000000" SlotName="Slot 6 (System Time)" MacOids="1800010300000000000000000000000000000000000000000000000000000000" SlotNo="6"/>
+			</Slot>
+			<Slot Id="#x03010019">
+				<Name>Slot 11 (EEPROM)</Name>
+				<ImageId>231</ImageId>
+				<CCatSlot SlotType="12000000000000000002000040000000" SlotName="Slot 11 (EEPROM)" SlotNo="11"/>
+			</Slot>
+			<Slot Id="#x0301001a">
+				<Name>Slot 13 (SRAM)</Name>
+				<ImageId>231</ImageId>
+				<CCatSlot SlotType="16000000000000000000100000001000" SlotName="Slot 13 (SRAM)" SlotNo="13"/>
+			</Slot>
+		</CCat>
+	</Device>
+</TcSmItem>

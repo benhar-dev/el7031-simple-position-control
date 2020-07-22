@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <DUT Name="POS_Control" Id="{10b928a3-4106-4e96-a3c7-d25659de8f0f}">
+    <Declaration><![CDATA[TYPE POS_Control :
+STRUCT
+	Control : POS_Control_Control;
+	TargetPosition : UDINT;
+	Velocity : INT;
+	StartType : UINT;
+	Acceleration : UINT;
+	Deceleration : UINT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

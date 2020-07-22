@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <POU Name="POU_ExampleDynamicMoves" Id="{f6128732-95c5-4c1d-9022-76e5dd0a4685}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM POU_ExampleDynamicMoves
+VAR
+	bCycleEnable : BOOL; // set true to start motion
+	iState : INT := -40;	
+END_VAR
+VAR CONSTANT
+	ABSOLUTE : UINT := 16#0001;
+	ABSOLUTE_CHANGE : UINT := 16#1001;
+	SET_CALIBRATION : UINT := 16#6E00;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE iState OF
+		
+	-40: // check for card errors and reset.
+		IF Axis.PosStatus.Status.Error THEN 
+			Axis.StmControl.Control.Reset := TRUE;
+		ELSE
+			Axis.StmControl.Control.Reset := FALSE;
+			iState := iState + 10;
+		END_IF
+		
+	-30: // wait for card to be ready.
+		IF Axis.StmStatus.Status.ReadyToEnable THEN 
+			Axis.StmControl.Control.Enable := TRUE;
+			iState := iState + 10;
+		END_IF
+		
+	-20: // set card to manually calibrated.
+		IF Axis.StmStatus.Status.Ready THEN 
+			Axis.PosControl.StartType := SET_CALIBRATION;
+			Axis.PosControl.Control.Execute := TRUE;
+			iState := iState + 10;
+		END_IF
+		
+	-10: // Check for calibrated flag then enable
+		IF Axis.PosStatus.Status.Calibrated THEN 
+			Axis.PosControl.Control.Execute := FALSE;
+			iState := iState + 10;
+		END_IF
+		
+	0: // Start operation
+		IF bCycleEnable AND NOT Axis.PosStatus.Status.Busy THEN 
+			iState := iState + 10;
+		END_IF
+		
+	10: // Set first move
+		Axis.PosControl.Acceleration := 4000;
+		Axis.PosControl.Deceleration := 4000;
+		Axis.PosControl.StartType := ABSOLUTE;
+		Axis.PosControl.Velocity := 4000;
+		Axis.PosControl.TargetPosition := 80000;
+		Axis.PosControl.Control.Execute := TRUE;
+
+		IF Axis.PosStatus.ActualPosition > 1000 THEN
+			iState := iState + 10;
+		END_IF
+		
+	20: // dynamic change
+	
+		Axis.PosControl.StartType := ABSOLUTE_CHANGE;
+		Axis.PosControl.TargetPosition := 40000;
+		
+		IF Axis.PosStatus.ActualPosition > 30000 THEN
+			Axis.PosControl.StartType := ABSOLUTE;
+			iState := iState + 10;
+		END_IF
+
+	30: // dynamic change
+	
+		Axis.PosControl.StartType := ABSOLUTE_CHANGE;
+		Axis.PosControl.TargetPosition := 20000;
+		
+		IF Axis.PosStatus.ActualPosition < 25000 THEN
+			Axis.PosControl.StartType := ABSOLUTE;
+			iState := iState + 10;	
+		END_IF
+	
+	40: // dynamic change
+	
+		Axis.PosControl.StartType := ABSOLUTE_CHANGE;
+		Axis.PosControl.TargetPosition := 80000;
+		
+		IF Axis.PosStatus.ActualPosition > 61000 THEN
+			Axis.PosControl.StartType := ABSOLUTE;
+			iState := iState + 10;
+		END_IF
+		
+	50: // dynamic change and end
+	
+		Axis.PosControl.StartType := ABSOLUTE_CHANGE;
+		Axis.PosControl.TargetPosition := 0;
+		
+		IF Axis.PosStatus.ActualPosition = Axis.PosControl.TargetPosition THEN
+			Axis.PosControl.Control.Execute := FALSE;
+			iState := 0;
+		END_IF
+		
+END_CASE
+]]></ST>
+    </Implementation>
+    <LineIds Name="POU_ExampleDynamicMoves">
+      <LineId Id="13" Count="28" />
+      <LineId Id="94" Count="57" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

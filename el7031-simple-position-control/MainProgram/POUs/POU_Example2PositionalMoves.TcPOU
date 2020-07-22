@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <POU Name="POU_Example2PositionalMoves" Id="{318606a1-b520-48c3-94d1-f6b84a6b1f2a}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM POU_Example2PositionalMoves
+VAR
+	bCycleEnable : BOOL; // set true to start motion
+	iState : INT := -40;	
+END_VAR
+VAR CONSTANT
+	ABSOLUTE : UINT := 16#0001;
+	SET_CALIBRATION : UINT := 16#6E00;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE iState OF
+		
+	-40: // check for card errors and reset.
+		IF Axis.PosStatus.Status.Error THEN 
+			Axis.StmControl.Control.Reset := TRUE;
+		ELSE
+			Axis.StmControl.Control.Reset := FALSE;
+			iState := iState + 10;
+		END_IF
+		
+	-30: // wait for card to be ready.
+		IF Axis.StmStatus.Status.ReadyToEnable THEN 
+			Axis.StmControl.Control.Enable := TRUE;
+			iState := iState + 10;
+		END_IF
+		
+	-20: // set card to manually calibrated.
+		IF Axis.StmStatus.Status.Ready THEN 
+			Axis.PosControl.StartType := SET_CALIBRATION;
+			Axis.PosControl.Control.Execute := TRUE;
+			iState := iState + 10;
+		END_IF
+		
+	-10: // Check for calibrated flag then enable
+		IF Axis.PosStatus.Status.Calibrated THEN 
+			Axis.PosControl.Control.Execute := FALSE;
+			iState := iState + 10;
+		END_IF
+		
+	0: // Start operation
+		IF bCycleEnable THEN
+			iState := 10;
+		END_IF
+		
+	10: // Set demand extend movement
+		Axis.PosControl.Acceleration := 1000;
+		Axis.PosControl.Deceleration := 1000;
+		Axis.PosControl.StartType := ABSOLUTE;
+		Axis.PosControl.Velocity := 500;
+		Axis.PosControl.TargetPosition := 20000;
+		Axis.PosControl.Control.Execute := TRUE;
+		
+		IF Axis.PosStatus.ActualPosition = Axis.PosControl.TargetPosition THEN
+			Axis.PosControl.Control.Execute := FALSE;
+			iState := 20;
+		END_IF
+		
+	20: // wait
+		IF NOT Axis.PosStatus.Status.Busy THEN
+			iState := 30;
+		END_IF
+		
+	30: // Set demand retract movement
+		Axis.PosControl.Acceleration := 2000;
+		Axis.PosControl.Deceleration := 2000;
+		Axis.PosControl.StartType := ABSOLUTE;
+		Axis.PosControl.Velocity := 1000;
+		Axis.PosControl.TargetPosition := 0;
+		Axis.PosControl.Control.Execute := TRUE;
+		
+		IF Axis.PosStatus.ActualPosition = Axis.PosControl.TargetPosition THEN
+			Axis.PosControl.Control.Execute := FALSE;
+			iState := 40;
+		END_IF
+		
+	40: // wait
+		IF NOT Axis.PosStatus.Status.Busy THEN
+			iState := 0;
+		END_IF
+		
+END_CASE
+]]></ST>
+    </Implementation>
+    <LineIds Name="POU_Example2PositionalMoves">
+      <LineId Id="13" Count="70" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

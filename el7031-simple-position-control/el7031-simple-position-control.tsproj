@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.7">
+	<Project ProjectGUID="{26A2CD5B-4329-4294-86EB-4FAD7BC2B267}" TargetNetId="5.68.118.43.1.1" ShowHideConfigurations="#x106">
+		<System>
+			<Tasks>
+				<Task Id="3" Priority="20" CycleTime="100000" AmsPort="350" AdtTasks="true">
+					<Name>PlcTask</Name>
+				</Task>
+				<Task Id="4" Priority="5" CycleTime="100000" AmsPort="351" AdtTasks="true">
+					<Name>VnTask ImgAcq (FileSource1)</Name>
+				</Task>
+			</Tasks>
+		</System>
+		<Plc>
+			<Project File="MainProgram.xti"/>
+		</Plc>
+		<Io>
+			<Device File="Device 1 (Beckhoff CCAT).xti" Id="1"/>
+			<Device File="Device 2 (EtherCAT).xti" Id="2"/>
+		</Io>
+	</Project>
+	<Mappings>
+		<MappingInfo Identifier="{00000000-2001-0850-0020-500810000403}" Id="#x02030010"/>
+	</Mappings>
+</TcSmProject>

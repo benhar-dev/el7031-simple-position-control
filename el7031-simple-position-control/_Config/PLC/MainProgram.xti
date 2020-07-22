@@ -1,0 +1,305 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.7" ClassName="CNestedPlcProjDef">
+	<DataTypes>
+		<DataType>
+			<Name GUID="{ABDB4B5E-5B26-A87A-C538-4CF1B106BDD8}" AutoDeleteType="true">POS_Status_Status</Name>
+			<BitSize>16</BitSize>
+			<SubItem>
+				<Name>Busy</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>InTarget</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Warning</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>2</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Error</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>3</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Calibrated</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>4</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Accelerate</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>5</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Decelerate</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>6</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{6F4FBEA9-D159-928E-9588-01723A8967C6}" AutoDeleteType="true">POS_Status</Name>
+			<BitSize>128</BitSize>
+			<SubItem>
+				<Name>Status</Name>
+				<Type GUID="{ABDB4B5E-5B26-A87A-C538-4CF1B106BDD8}">POS_Status_Status</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ActualPosition</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ActualVelocity</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000006}">INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ActualDriveTime</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{F64409B4-2C20-F03E-51D8-B5528FF45220}"/>
+			</Hides>
+		</DataType>
+		<DataType>
+			<Name GUID="{F928596F-5475-B946-4359-3E6B0EC9222B}" AutoDeleteType="true">STM_Status_Status</Name>
+			<BitSize>16</BitSize>
+			<SubItem>
+				<Name>ReadyToEnable</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Ready</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Warning</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>2</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Error</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>3</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>MovingPositive</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>4</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>MovingNegative</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>5</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>TorqueReduced</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>6</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>DigitalInput1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>11</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>DigitalInput2</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>12</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>SyncError</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>13</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>TxPDOToggle</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>15</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{882F0AD8-6E23-B702-6868-0350EC244D8C}" AutoDeleteType="true">STM_Status</Name>
+			<BitSize>16</BitSize>
+			<SubItem>
+				<Name>Status</Name>
+				<Type GUID="{F928596F-5475-B946-4359-3E6B0EC9222B}">STM_Status_Status</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{CFE6A37C-BFD6-AEFE-44EF-F829DB296833}" AutoDeleteType="true">POS_Control_Control</Name>
+			<BitSize>16</BitSize>
+			<SubItem>
+				<Name>Execute</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>EmergencyStop</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{4CE0A676-14B8-7C14-5540-515F2ACD1650}" AutoDeleteType="true">POS_Control</Name>
+			<BitSize>128</BitSize>
+			<SubItem>
+				<Name>Control</Name>
+				<Type GUID="{CFE6A37C-BFD6-AEFE-44EF-F829DB296833}">POS_Control_Control</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>TargetPosition</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Velocity</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000006}">INT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>StartType</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>80</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Acceleration</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>96</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Deceleration</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>112</BitOffs>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{6968EE36-CDB7-612F-F22E-5B1DA70DE95E}"/>
+			</Hides>
+		</DataType>
+		<DataType>
+			<Name GUID="{1ABF48D8-B249-520D-3CF8-E7D196F243D3}" AutoDeleteType="true">STM_Control_Control</Name>
+			<BitSize>16</BitSize>
+			<SubItem>
+				<Name>Enable</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Reset</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>ReduceTorque</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>2</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{F8D6654B-39DA-B466-54A0-09F6821DE008}" AutoDeleteType="true">STM_Control</Name>
+			<BitSize>16</BitSize>
+			<SubItem>
+				<Name>Control</Name>
+				<Type GUID="{1ABF48D8-B249-520D-3CF8-E7D196F243D3}">STM_Control_Control</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<Hides>
+				<Hide GUID="{62D5E768-2008-B566-E874-B271837F2B24}"/>
+			</Hides>
+		</DataType>
+	</DataTypes>
+	<Project GUID="{25B90D52-4E1C-43C4-982E-3E9F661AFA23}" Name="MainProgram" PrjFilePath="..\..\MainProgram\MainProgram.plcproj" TmcFilePath="..\..\MainProgram\MainProgram.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
+		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="MainProgram\MainProgram.tmc">
+			<Name>MainProgram Instance</Name>
+			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+			<Vars VarGrpType="1">
+				<Name>PlcTask Inputs</Name>
+				<Var>
+					<Name>GVL_IO.Axis.PosStatus</Name>
+					<Type GUID="{6F4FBEA9-D159-928E-9588-01723A8967C6}">POS_Status</Type>
+				</Var>
+				<Var>
+					<Name>GVL_IO.Axis.StmStatus</Name>
+					<Type GUID="{882F0AD8-6E23-B702-6868-0350EC244D8C}">STM_Status</Type>
+				</Var>
+			</Vars>
+			<Vars VarGrpType="2">
+				<Name>PlcTask Outputs</Name>
+				<Var>
+					<Name>GVL_IO.Axis.PosControl</Name>
+					<Type GUID="{4CE0A676-14B8-7C14-5540-515F2ACD1650}">POS_Control</Type>
+				</Var>
+				<Var>
+					<Name>GVL_IO.Axis.StmControl</Name>
+					<Type GUID="{F8D6654B-39DA-B466-54A0-09F6821DE008}">STM_Control</Type>
+				</Var>
+			</Vars>
+			<TaskPouOids>
+				<TaskPouOid Prio="20" OTCID="#x08502001"/>
+			</TaskPouOids>
+		</Instance>
+	</Project>
+	<Mappings>
+		<OwnerA Name="MainProgram Instance">
+			<OwnerB Name="TIID^Device 2 (EtherCAT)^Term 1 (EK1200)^Term 2 (EL7031)">
+				<Link VarA="PlcTask Inputs^GVL_IO.Axis.PosStatus^ActualDriveTime" VarB="POS Status^Actual drive time"/>
+				<Link VarA="PlcTask Inputs^GVL_IO.Axis.PosStatus^ActualPosition" VarB="POS Status^Actual position"/>
+				<Link VarA="PlcTask Inputs^GVL_IO.Axis.PosStatus^ActualVelocity" VarB="POS Status^Actual velocity"/>
+				<Link VarA="PlcTask Inputs^GVL_IO.Axis.PosStatus^Status" VarB="POS Status^Status"/>
+				<Link VarA="PlcTask Inputs^GVL_IO.Axis.StmStatus^Status" VarB="STM Status^Status"/>
+				<Link VarA="PlcTask Outputs^GVL_IO.Axis.PosControl^Acceleration" VarB="POS Control^Acceleration"/>
+				<Link VarA="PlcTask Outputs^GVL_IO.Axis.PosControl^Control" VarB="POS Control^Control"/>
+				<Link VarA="PlcTask Outputs^GVL_IO.Axis.PosControl^Deceleration" VarB="POS Control^Deceleration"/>
+				<Link VarA="PlcTask Outputs^GVL_IO.Axis.PosControl^StartType" VarB="POS Control^Start type"/>
+				<Link VarA="PlcTask Outputs^GVL_IO.Axis.PosControl^TargetPosition" VarB="POS Control^Target position"/>
+				<Link VarA="PlcTask Outputs^GVL_IO.Axis.PosControl^Velocity" VarB="POS Control^Velocity"/>
+				<Link VarA="PlcTask Outputs^GVL_IO.Axis.StmControl^Control" VarB="STM Control^Control"/>
+			</OwnerB>
+		</OwnerA>
+	</Mappings>
+</TcSmItem>

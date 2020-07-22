@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.3">
+  <DUT Name="POS_Status" Id="{9cf80b02-d077-4d64-bf31-7557045149ae}">
+    <Declaration><![CDATA[TYPE POS_Status :
+STRUCT
+	Status : POS_Status_Status;
+	ActualPosition : UDINT;
+	ActualVelocity : INT;
+	ActualDriveTime : UDINT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>
